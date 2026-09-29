@@ -673,46 +673,6 @@ section[id] {
   transform: scale(1.03);
 }
 
-/* Branded panel for a product that has no photo yet (identity colours only). */
-.product-card__media--emblem {
-  position: relative;
-  display: grid;
-  place-content: center;
-  justify-items: center;
-  gap: 1rem;
-  background:
-    radial-gradient(circle at 50% 42%, color-mix(in oklab, var(--brand-yellow) 16%, transparent), transparent 62%),
-    var(--primary);
-  color: var(--brand-yellow);
-}
-
-.product-card__media--emblem::before {
-  content: "";
-  position: absolute;
-  inset: 1rem;
-  border: 1px solid color-mix(in oklab, var(--brand-yellow) 45%, transparent);
-  border-radius: var(--radius-lg);
-  pointer-events: none;
-}
-
-.product-card__emblem {
-  width: 5rem;
-  height: 5rem;
-  stroke-width: 1.2;
-  transition: transform 0.7s;
-}
-
-.product-card:hover .product-card__emblem {
-  transform: scale(1.05);
-}
-
-.product-card__emblem-label {
-  font-family: var(--font-display);
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--primary-foreground);
-}
-
 .product-card__body {
   display: flex;
   flex-direction: column;
@@ -754,23 +714,20 @@ section[id] {
   font-size: 0.875rem;
 }
 
+/* Label above value: ingredient lists read naturally instead of squeezing beside the label. */
 .product-card__spec {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 1rem;
+  display: grid;
+  gap: 0.375rem;
 }
 
 .product-card__spec dt {
-  flex-shrink: 0;
   font-weight: 700;
   color: var(--foreground);
 }
 
 .product-card__spec dd {
-  text-align: left;
   font-weight: 500;
-  line-height: 1.5;
+  line-height: 1.8;
   color: var(--muted-foreground);
 }
 
@@ -1444,8 +1401,10 @@ section[id] {
 
 .modal__close:hover { opacity: 1; }
 
+/* height:auto lets aspect-ratio win over the height="896" attribute (it made the image very tall). */
 .modal__image {
   width: 100%;
+  height: auto;
   aspect-ratio: 16 / 10;
   object-fit: cover;
   border-radius: var(--radius-xl);
