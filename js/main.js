@@ -1,12 +1,9 @@
-/* Larino — site interactions (vanilla JS, no dependencies). */
 (function () {
   "use strict";
 
   var WHATSAPP_NUMBER = "963952516412";
   var HERO_INTERVAL_MS = 5200;
-  var modalState = null; // { el, returnFocus }
-
-  /* ---------- Shared helpers ---------- */
+  var modalState = null;
 
   function lockScroll(lock) {
     document.body.style.overflow = lock ? "hidden" : "";
@@ -26,13 +23,13 @@
     }
   }
 
-  /* ---------- Mobile navigation ---------- */
-
+  var siteHeader = document.querySelector(".site-header");
   var menuToggle = document.querySelector(".menu-toggle");
   var mobileNav = document.getElementById("mobile-nav");
 
   function closeMenu(returnFocus) {
     mobileNav.hidden = true;
+    siteHeader.classList.remove("is-open");
     menuToggle.setAttribute("aria-expanded", "false");
     menuToggle.setAttribute("aria-label", "فتح القائمة");
     if (returnFocus) menuToggle.focus();
@@ -44,6 +41,7 @@
       closeMenu(false);
     } else {
       mobileNav.hidden = false;
+      siteHeader.classList.add("is-open");
       menuToggle.setAttribute("aria-expanded", "true");
       menuToggle.setAttribute("aria-label", "إغلاق القائمة");
       mobileNav.querySelector("a").focus();
@@ -64,9 +62,6 @@
     if (window.innerWidth >= 1024 && mobileNav.hidden === false) closeMenu(false);
   });
 
-  /* ---------- Header shadow + floating WhatsApp (after the hero) ---------- */
-
-  var siteHeader = document.querySelector(".site-header");
   var heroSection = document.getElementById("home");
   var floatBtn = document.querySelector(".whatsapp-float");
   var scrollTicking = false;
@@ -75,7 +70,6 @@
     scrollTicking = false;
     var y = window.scrollY;
     siteHeader.classList.toggle("is-scrolled", y > 8);
-    // The header already offers WhatsApp on the first screen; the floating button joins after the hero.
     floatBtn.classList.toggle("is-shown", y > heroSection.offsetHeight * 0.6);
   }
 
@@ -86,8 +80,6 @@
     }
   }, { passive: true });
   onScroll();
-
-  /* ---------- Hero stage rotation ---------- */
 
   var heroSlides = Array.prototype.slice.call(document.querySelectorAll(".hero__slide"));
   var heroDots = Array.prototype.slice.call(document.querySelectorAll(".hero__stage-dot"));
@@ -134,8 +126,6 @@
 
   restartHeroTimer();
 
-  /* ---------- Scroll reveal ---------- */
-
   var revealItems = document.querySelectorAll(".reveal");
   if ("IntersectionObserver" in window) {
     var observer = new IntersectionObserver(function (entries) {
@@ -151,8 +141,6 @@
     revealItems.forEach(function (item) { item.classList.add("is-visible"); });
   }
 
-  /* ---------- Product details modal ---------- */
-
   var productModal = document.getElementById("product-modal");
   var productModalImage = productModal.querySelector(".modal__image");
   var productModalTitle = productModal.querySelector(".modal__title");
@@ -162,7 +150,6 @@
 
   function openModal(trigger) {
     var data = trigger.dataset;
-    // Products without a photo yet (no data-src) open the modal without an image.
     productModalImage.hidden = !data.src;
     if (data.src) {
       productModalImage.src = data.src;
@@ -212,8 +199,6 @@
   productModal.addEventListener("keydown", function (event) {
     if (event.key === "Tab") trapTab(productModal, event);
   });
-
-  /* ---------- WhatsApp forms ---------- */
 
   function openWhatsApp(lines) {
     var text = encodeURIComponent(lines.filter(Boolean).join("\n"));

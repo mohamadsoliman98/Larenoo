@@ -1,10 +1,3 @@
-/* ==========================================================================
-   Larino — لارينوو | حلاوة وطحينة
-   Static stylesheet. Design tokens mirror the approved identity (oklch).
-   ========================================================================== */
-
-/* ---------- Design tokens ---------- */
-
 :root {
   --background: oklch(0.955 0.013 75);
   --foreground: oklch(0.28 0.012 75);
@@ -21,7 +14,6 @@
   --pistachio: oklch(0.6 0.08 120);
   --cream: oklch(0.975 0.01 78);
   --blue-soft: oklch(0.92 0.03 118);
-  /* Derived shades of the brand olive (no new hues): AA-contrast small text, dark bands, image scrims. */
   --primary-deep: color-mix(in oklab, var(--primary) 70%, var(--foreground));
   --scrim: color-mix(in oklab, var(--primary) 30%, var(--foreground));
   --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
@@ -42,8 +34,6 @@
   --shell-max: 76rem;
 }
 
-/* ---------- Fonts (self-hosted, arabic + latin subsets) ---------- */
-
 @font-face { font-family: "El Messiri"; font-style: normal; font-weight: 500; font-display: swap; src: url("/assets/fonts/ElMessiri-500-arabic.woff2") format("woff2"); unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+10EC2-10EC4, U+10EFC-10EFF, U+1EE00-1EE03, U+1EE05-1EE1F, U+1EE21-1EE22, U+1EE24, U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EE39, U+1EE3B, U+1EE42, U+1EE47, U+1EE49, U+1EE4B, U+1EE4D-1EE4F, U+1EE51-1EE52, U+1EE54, U+1EE57, U+1EE59, U+1EE5B, U+1EE5D, U+1EE5F, U+1EE61-1EE62, U+1EE64, U+1EE67-1EE6A, U+1EE6C-1EE72, U+1EE74-1EE77, U+1EE79-1EE7C, U+1EE7E, U+1EE80-1EE89, U+1EE8B-1EE9B, U+1EEA1-1EEA3, U+1EEA5-1EEA9, U+1EEAB-1EEBB, U+1EEF0-1EEF1; }
 @font-face { font-family: "El Messiri"; font-style: normal; font-weight: 500; font-display: swap; src: url("/assets/fonts/ElMessiri-500-latin.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
 @font-face { font-family: "El Messiri"; font-style: normal; font-weight: 600; font-display: swap; src: url("/assets/fonts/ElMessiri-600-arabic.woff2") format("woff2"); unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+10EC2-10EC4, U+10EFC-10EFF, U+1EE00-1EE03, U+1EE05-1EE1F, U+1EE21-1EE22, U+1EE24, U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EE39, U+1EE3B, U+1EE42, U+1EE47, U+1EE49, U+1EE4B, U+1EE4D-1EE4F, U+1EE51-1EE52, U+1EE54, U+1EE57, U+1EE59, U+1EE5B, U+1EE5D, U+1EE5F, U+1EE61-1EE62, U+1EE64, U+1EE67-1EE6A, U+1EE6C-1EE72, U+1EE74-1EE77, U+1EE79-1EE7C, U+1EE7E, U+1EE80-1EE89, U+1EE8B-1EE9B, U+1EEA1-1EEA3, U+1EEA5-1EEA9, U+1EEAB-1EEBB, U+1EEF0-1EEF1; }
@@ -59,8 +49,6 @@
 @font-face { font-family: "IBM Plex Sans Arabic"; font-style: normal; font-weight: 600; font-display: swap; src: url("/assets/fonts/IBMPlexSansArabic-600-latin.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
 @font-face { font-family: "IBM Plex Sans Arabic"; font-style: normal; font-weight: 700; font-display: swap; src: url("/assets/fonts/IBMPlexSansArabic-700-arabic.woff2") format("woff2"); unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+10EC2-10EC4, U+10EFC-10EFF, U+1EE00-1EE03, U+1EE05-1EE1F, U+1EE21-1EE22, U+1EE24, U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EE39, U+1EE3B, U+1EE42, U+1EE47, U+1EE49, U+1EE4B, U+1EE4D-1EE4F, U+1EE51-1EE52, U+1EE54, U+1EE57, U+1EE59, U+1EE5B, U+1EE5D, U+1EE5F, U+1EE61-1EE62, U+1EE64, U+1EE67-1EE6A, U+1EE6C-1EE72, U+1EE74-1EE77, U+1EE79-1EE7C, U+1EE7E, U+1EE80-1EE89, U+1EE8B-1EE9B, U+1EEA1-1EEA3, U+1EEA5-1EEA9, U+1EEAB-1EEBB, U+1EEF0-1EEF1; }
 @font-face { font-family: "IBM Plex Sans Arabic"; font-style: normal; font-weight: 700; font-display: swap; src: url("/assets/fonts/IBMPlexSansArabic-700-latin.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
-
-/* ---------- Base ---------- */
 
 *, *::before, *::after {
   box-sizing: border-box;
@@ -83,7 +71,6 @@ body {
   background-color: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans);
-  /* Weight axis: both bundled families top out at 700, so 800/900 snap to 700. */
   line-height: 1.5;
   text-rendering: optimizeLegibility;
   overflow-x: hidden;
@@ -142,8 +129,6 @@ section[id] {
   scroll-margin-top: var(--header-height);
 }
 
-/* ---------- Icons ---------- */
-
 .ic {
   width: 1rem;
   height: 1rem;
@@ -164,8 +149,6 @@ section[id] {
 .svg-sprite {
   display: none;
 }
-
-/* ---------- Shared utilities ---------- */
 
 .shell {
   width: min(100% - 2rem, var(--shell-max));
@@ -255,6 +238,29 @@ section[id] {
   transform: none;
 }
 
+.reveal--stagger {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+
+.reveal--stagger:not(.is-visible) > * {
+  opacity: 0;
+}
+
+.reveal--stagger.is-visible > * {
+  animation: rise-in 0.8s var(--ease) both;
+}
+
+.reveal--stagger.is-visible > :nth-child(2) { animation-delay: 0.1s; }
+.reveal--stagger.is-visible > :nth-child(3) { animation-delay: 0.2s; }
+.reveal--stagger.is-visible > :nth-child(4) { animation-delay: 0.3s; }
+
+@keyframes rise-in {
+  from { opacity: 0; translate: 0 24px; }
+  to { opacity: 1; translate: 0 0; }
+}
+
 @keyframes reveal-up {
   from { opacity: 0; transform: translateY(18px); }
   to { opacity: 1; transform: translateY(0); }
@@ -280,8 +286,6 @@ section[id] {
 .skip-link:focus {
   top: 1rem;
 }
-
-/* ---------- Buttons ---------- */
 
 .btn {
   display: inline-flex;
@@ -350,7 +354,6 @@ section[id] {
   transform: translateY(-2px);
 }
 
-/* Secondary action on dark imagery: outline in cream. */
 .btn--outline-light {
   border-color: color-mix(in oklab, var(--primary-foreground) 55%, transparent);
   background: color-mix(in oklab, var(--primary-foreground) 6%, transparent);
@@ -379,19 +382,23 @@ section[id] {
   display: none;
 }
 
-/* ---------- Header ---------- */
-
 .site-header {
   position: fixed;
   inset-inline: 0;
   top: 0;
   z-index: 50;
-  border-bottom: 1px solid color-mix(in oklab, var(--primary-foreground) 15%, transparent);
-  background: color-mix(in oklab, var(--primary) 90%, transparent);
+  border-bottom: 1px solid transparent;
+  background: transparent;
   color: var(--primary-foreground);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  transition: box-shadow 0.3s;
+  transition: background-color 0.35s, border-color 0.35s, box-shadow 0.35s, backdrop-filter 0.35s;
+}
+
+.site-header.is-scrolled,
+.site-header.is-open {
+  border-bottom-color: color-mix(in oklab, var(--primary-foreground) 15%, transparent);
+  background: color-mix(in oklab, var(--primary) 92%, transparent);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
 }
 
 .site-header.is-scrolled {
@@ -538,8 +545,6 @@ section[id] {
   margin-top: 1.25rem;
 }
 
-/* ---------- Hero ---------- */
-
 .hero {
   position: relative;
   min-height: 88svh;
@@ -562,8 +567,8 @@ section[id] {
   object-fit: cover;
   object-position: 58% center;
   opacity: 0;
-  transform: scale(1.035);
-  transition: opacity 1s, transform 1s;
+  transform: scale(1.06);
+  transition: opacity 1.2s ease, transform 7s var(--ease);
 }
 
 .hero__slide.is-active {
@@ -575,8 +580,8 @@ section[id] {
   position: absolute;
   inset: 0;
   background: linear-gradient(180deg,
-    color-mix(in oklab, var(--scrim) 35%, transparent) 0%,
-    transparent 18%,
+    color-mix(in oklab, var(--scrim) 60%, transparent) 0%,
+    transparent 20%,
     color-mix(in oklab, var(--scrim) 72%, transparent) 42%,
     color-mix(in oklab, var(--scrim) 92%, transparent) 100%);
 }
@@ -585,7 +590,7 @@ section[id] {
   position: absolute;
   inset-inline: 0;
   top: var(--header-height);
-  opacity: 0.8;
+  opacity: 0.45;
 }
 
 .hero__content {
@@ -658,6 +663,7 @@ section[id] {
 }
 
 .hero__stage-dot {
+  position: relative;
   display: grid;
   width: 2.25rem;
   height: 1.75rem;
@@ -681,15 +687,27 @@ section[id] {
   width: 3.5rem;
 }
 
-.hero__stage-dot.is-active::before {
+.hero__stage-dot.is-active::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0.5rem;
+  top: 50%;
+  height: 4px;
+  margin-top: -2px;
+  border-radius: 9999px;
   background: var(--brand-yellow);
+  transform-origin: right center;
+  animation: stage-fill 5.2s linear both;
+}
+
+@keyframes stage-fill {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
 }
 
 .hero__stage-dot:hover::before {
   background: color-mix(in oklab, var(--primary-foreground) 75%, transparent);
 }
-
-/* ---------- About ---------- */
 
 .about {
   position: relative;
@@ -697,20 +715,29 @@ section[id] {
 
 .about .shell {
   display: grid;
-  gap: 2.5rem;
+  justify-items: center;
+  gap: 2rem;
+  max-width: 46rem;
+  text-align: center;
 }
 
 .about__heading .section__title { margin-top: 1rem; }
 
-.about__body {
-  border-right: 2px solid var(--brand-yellow);
-  padding-right: 1.5rem;
+.about__body::before {
+  content: "";
+  display: block;
+  width: 3rem;
+  height: 1px;
+  margin: 0 auto 2rem;
+  background: var(--brand-yellow);
 }
 
 .about__lead {
-  font-size: 1.1875rem;
+  font-family: var(--font-display);
+  font-size: 1.375rem;
   font-weight: 700;
-  line-height: 1.9;
+  line-height: 1.8;
+  color: var(--foreground);
 }
 
 .about__text {
@@ -718,8 +745,6 @@ section[id] {
   line-height: 2;
   color: var(--muted-foreground);
 }
-
-/* ---------- Products ---------- */
 
 .products {
   border-block: 1px solid var(--border);
@@ -769,17 +794,35 @@ section[id] {
   padding: 1.5rem;
 }
 
+.product-card--larinoo { --label: #0b3720; }
+.product-card--molouk { --label: #29133e; }
+.product-card--plain { --label: #5a2618; }
+.product-card--tahini { --label: #591728; }
+
 .product-card__category {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
   font-size: 0.8125rem;
   font-weight: 700;
   color: var(--primary-deep);
 }
 
+.product-card__category::before {
+  content: "";
+  width: 0.625rem;
+  height: 0.625rem;
+  border-radius: 9999px;
+  background: var(--label, var(--primary));
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--label, var(--primary)) 14%, transparent);
+}
+
 .product-card__dash {
   width: 3rem;
-  height: 1px;
-  margin-top: 0.75rem;
-  background: var(--brand-yellow);
+  height: 2px;
+  margin-top: 0.875rem;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--brand-yellow), var(--label, var(--brand-yellow)));
 }
 
 .product-card__name {
@@ -804,7 +847,6 @@ section[id] {
   font-size: 0.875rem;
 }
 
-/* Label above value: ingredient lists read naturally instead of squeezing beside the label. */
 .product-card__spec {
   display: grid;
   gap: 0.375rem;
@@ -821,13 +863,10 @@ section[id] {
   color: var(--muted-foreground);
 }
 
-/* Auto margin keeps the buttons aligned when cards sit side by side. */
 .product-details-btn {
   margin-top: auto;
   align-self: flex-start;
 }
-
-/* ---------- Ingredients ---------- */
 
 .ingredients {
   position: relative;
@@ -896,8 +935,6 @@ section[id] {
   font-weight: 700;
 }
 
-/* ---------- Quality / process ---------- */
-
 .quality__grid {
   display: grid;
   gap: 1.25rem;
@@ -964,8 +1001,6 @@ section[id] {
   color: color-mix(in oklab, var(--primary-foreground) 92%, transparent);
 }
 
-/* ---------- Values ---------- */
-
 .values {
   position: relative;
   background: var(--primary);
@@ -979,7 +1014,8 @@ section[id] {
 
 .values__list {
   display: grid;
-  gap: 2rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2rem 1.25rem;
 }
 
 .value-item {
@@ -987,12 +1023,16 @@ section[id] {
   padding-top: 1.25rem;
 }
 
-.value-item__icon {
-  color: var(--brand-yellow);
+.value-item__figure {
+  font-family: var(--font-display);
+  font-size: 2.25rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: color-mix(in oklab, var(--brand-yellow) 60%, var(--primary-foreground));
 }
 
 .value-item__title {
-  margin-top: 1rem;
+  margin-top: 0.5rem;
   font-size: 1.125rem;
 }
 
@@ -1001,10 +1041,8 @@ section[id] {
   font-size: 0.9375rem;
   font-weight: 500;
   line-height: 1.75;
-  color: color-mix(in oklab, var(--primary-foreground) 85%, transparent);
+  color: var(--primary-foreground);
 }
-
-/* ---------- Partners / wholesale ---------- */
 
 .partners {
   background: var(--cream);
@@ -1084,8 +1122,6 @@ section[id] {
   color: var(--muted-foreground);
 }
 
-/* ---------- Forms ---------- */
-
 .form {
   display: grid;
   gap: 1rem;
@@ -1130,8 +1166,6 @@ section[id] {
   font-weight: 700;
   color: var(--primary);
 }
-
-/* ---------- Contact ---------- */
 
 .contact__grid {
   display: grid;
@@ -1193,8 +1227,6 @@ section[id] {
   padding: 1.5rem;
   box-shadow: var(--shadow-soft);
 }
-
-/* ---------- Footer ---------- */
 
 .site-footer {
   background: var(--primary);
@@ -1290,8 +1322,6 @@ section[id] {
   color: var(--primary-foreground);
 }
 
-/* ---------- Floating WhatsApp ---------- */
-
 .whatsapp-float {
   position: fixed;
   bottom: max(1.25rem, env(safe-area-inset-bottom));
@@ -1321,8 +1351,6 @@ section[id] {
 .whatsapp-float.is-shown:hover {
   transform: scale(1.06);
 }
-
-/* ---------- Product modal ---------- */
 
 .modal {
   position: fixed;
@@ -1374,7 +1402,6 @@ section[id] {
 
 .modal__close:hover { opacity: 1; }
 
-/* height:auto lets aspect-ratio win over the height="896" attribute (it made the image very tall). */
 .modal__image {
   width: 100%;
   height: auto;
@@ -1431,8 +1458,6 @@ section[id] {
   to { opacity: 0; transform: translate(-50%, -50%) scale(0.95); }
 }
 
-/* ---------- Responsive ---------- */
-
 @media (min-width: 640px) {
   .section { padding-block: 7rem; }
 
@@ -1446,7 +1471,7 @@ section[id] {
 
   .process-card { min-height: 24rem; }
 
-  .values__list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .value-item__figure { font-size: 2.75rem; }
 
   .ingredients__list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .ingredients__content { align-items: center; }
@@ -1482,11 +1507,6 @@ section[id] {
 
   .footer__grid { grid-template-columns: minmax(0, 1.4fr) minmax(0, 0.8fr) minmax(0, 1fr); gap: 3rem; }
 
-  .about .shell {
-    grid-template-columns: 0.8fr 1.2fr;
-    align-items: end;
-  }
-
   .hero__box {
     width: 62%;
     margin-right: auto;
@@ -1494,6 +1514,8 @@ section[id] {
 }
 
 @media (min-width: 1024px) {
+  .section { padding-block: 8.5rem; }
+  .value-item__figure { font-size: 3.25rem; }
   .nav-desktop { display: flex; }
   .menu-toggle { display: none; }
   .hero__title { font-size: 4rem; }
@@ -1503,7 +1525,6 @@ section[id] {
     grid-template-columns: 0.8fr 1.2fr;
     align-items: center;
   }
-  .values__list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 
   .partners__grid {
     grid-template-columns: 0.9fr 1.1fr;
@@ -1519,7 +1540,7 @@ section[id] {
 @media (min-width: 768px) {
   .hero__overlay {
     background:
-      linear-gradient(180deg, color-mix(in oklab, var(--scrim) 35%, transparent), transparent 22%),
+      linear-gradient(180deg, color-mix(in oklab, var(--scrim) 60%, transparent), transparent 24%),
       linear-gradient(90deg,
         color-mix(in oklab, var(--scrim) 88%, transparent) 0%,
         color-mix(in oklab, var(--scrim) 80%, transparent) 42%,
@@ -1539,7 +1560,6 @@ section[id] {
   .product-card__media { aspect-ratio: auto; min-height: 18rem; }
 }
 
-/* Tablet: two cards per row, an odd last card spans the row in the horizontal layout. */
 @media (min-width: 768px) and (max-width: 1023px) {
   .products__grid > .product-card:last-child:nth-child(odd) {
     grid-column: 1 / -1;
@@ -1564,8 +1584,6 @@ section[id] {
   .contact-card__number { font-size: 0.8125rem; }
 }
 
-/* ---------- Reduced motion ---------- */
-
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after {
@@ -1573,5 +1591,6 @@ section[id] {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     transition-delay: 0s !important;
+    animation-delay: 0s !important;
   }
 }
