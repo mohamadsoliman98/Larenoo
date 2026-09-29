@@ -18,18 +18,20 @@
   <meta property="og:image" content="https://larinoo.com/assets/images/og-image.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="حلاوة لارينوو الطحينية بالفستق الحلبي الممتاز">
+  <meta property="og:image:alt" content="شركة لارينوو والملوك: حلاوة وطحينة بصناعة سورية">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="شركة لارينوو والملوك | حلاوة طحينية بالفستق وطحينة سورية">
   <meta name="twitter:description" content="حلاوة لارينوو بالفستق الحلبي وحلاوة الملوك بالفستق السوداني أو سادة وطحينة سمسم سورية نقية من شركة لارينوو والملوك">
   <meta name="twitter:image" content="https://larinoo.com/assets/images/og-image.jpg">
   <meta name="theme-color" content="#687542">
   <meta name="format-detection" content="telephone=no">
-  <link rel="icon" href="/favicon.png" type="image/png">
+  <link rel="icon" href="/favicon.png" type="image/png" sizes="64x64">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="preload" href="/assets/fonts/IBMPlexSansArabic-700-arabic.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/assets/fonts/IBMPlexSansArabic-500-arabic.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="/assets/fonts/ElMessiri-700-arabic.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="/css/style.css?v=5">
+  <link rel="preload" href="/assets/fonts/ElMessiri-arabic.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/css/style.css?v=6">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -81,13 +83,6 @@
         "category": "طحينة السمسم",
         "brand": { "@type": "Brand", "name": "لارينوو" },
         "countryOfOrigin": "SY"
-      },
-      {
-        "@type": "FAQPage",
-        "mainEntity": [
-          { "@type": "Question", "name": "ما الفرق بين حلاوة لارينوو وحلاوة الملوك؟", "acceptedAnswer": { "@type": "Answer", "text": "تُصنع حلاوة لارينوو من طحينة السمسم والفستق الحلبي وتُصنع حلاوة الملوك من طحينة السمسم والفستق السوداني أو سادة بدون فستق، وكلتاهما من إنتاج شركة لارينوو والملوك" } },
-          { "@type": "Question", "name": "أين تُصنع منتجات شركة لارينوو والملوك؟", "acceptedAnswer": { "@type": "Answer", "text": "شركة لارينوو والملوك معمل سوري متخصص في صناعة الحلاوة والطحينة والتوزيع متاح في جميع أنحاء الجمهورية العربية السورية" } }
-        ]
       }
     ]
   }
@@ -118,9 +113,9 @@
         <span class="logo__tagline">حلاوة وطحينة</span>
       </a>
       <nav class="nav-desktop" aria-label="التنقل الرئيسي">
-        <a href="#about">قصتنا</a>
         <a href="#products">منتجاتنا</a>
-        <a href="#quality">رحلة التصنيع</a>
+        <a href="#about">قصتنا</a>
+        <a href="#ingredients">مكوناتنا</a>
         <a href="#partners">للتجار</a>
         <a href="#contact">تواصل معنا</a>
       </nav>
@@ -137,9 +132,9 @@
       </div>
     </div>
     <nav class="nav-mobile" id="mobile-nav" aria-label="قائمة الجوال" hidden>
-      <a href="#about">قصتنا</a>
       <a href="#products">منتجاتنا</a>
-      <a href="#quality">رحلة التصنيع</a>
+      <a href="#about">قصتنا</a>
+      <a href="#ingredients">مكوناتنا</a>
       <a href="#partners">للتجار</a>
       <a href="#contact">تواصل معنا</a>
       <div class="nav-mobile__actions">
@@ -152,60 +147,19 @@
   <main id="main">
 
     <section id="home" class="hero">
-      <div class="hero__slides">
-        <picture>
-          <source media="(max-width: 639px)" srcset="/assets/images/larino-sesame-portrait-600w.webp 600w, /assets/images/larino-sesame-portrait-900w.webp 900w" sizes="(max-aspect-ratio: 2/3) 66vh, 100vw">
-          <img class="hero__slide" data-alt="سمسم مختار في بداية رحلة صناعة الحلاوة" src="/assets/images/larino-sesame-1600w.webp" srcset="/assets/images/larino-sesame-640w.webp 640w, /assets/images/larino-sesame-960w.webp 960w, /assets/images/larino-sesame-1280w.webp 1280w, /assets/images/larino-sesame-1600w.webp 1600w" sizes="100vw" width="1600" height="1200" alt="" aria-hidden="true" decoding="async" fetchpriority="low">
-        </picture>
-        <picture>
-          <source media="(max-width: 639px)" srcset="/assets/images/larino-tahini-portrait-600w.webp 600w, /assets/images/larino-tahini-portrait-900w.webp 900w" sizes="(max-aspect-ratio: 2/3) 66vh, 100vw">
-          <img class="hero__slide" data-alt="طحينة السمسم الطازجة خلال التحضير" src="/assets/images/larino-tahini-1600w.webp" srcset="/assets/images/larino-tahini-640w.webp 640w, /assets/images/larino-tahini-960w.webp 960w, /assets/images/larino-tahini-1280w.webp 1280w, /assets/images/larino-tahini-1600w.webp 1600w" sizes="100vw" width="1600" height="1200" alt="" aria-hidden="true" decoding="async" fetchpriority="low">
-        </picture>
-        <picture>
-          <source media="(max-width: 639px)" srcset="/assets/images/larino-pistachio-portrait-600w.webp 600w, /assets/images/larino-pistachio-portrait-900w.webp 900w" sizes="(max-aspect-ratio: 2/3) 66vh, 100vw">
-          <img class="hero__slide" data-alt="إضافة الفستق الحلبي إلى الحلاوة" src="/assets/images/larino-pistachio-1600w.webp" srcset="/assets/images/larino-pistachio-640w.webp 640w, /assets/images/larino-pistachio-960w.webp 960w, /assets/images/larino-pistachio-1280w.webp 1280w, /assets/images/larino-pistachio-1600w.webp 1600w" sizes="100vw" width="1600" height="1200" alt="" aria-hidden="true" decoding="async" fetchpriority="low">
-        </picture>
-        <picture>
-          <source media="(max-width: 639px)" srcset="/assets/images/larino-halva-portrait-600w.webp 600w, /assets/images/larino-halva-portrait-900w.webp 900w" sizes="(max-aspect-ratio: 2/3) 66vh, 100vw">
-          <img class="hero__slide is-active" data-alt="حلاوة لارينوو الطحينية بالفستق الحلبي الممتاز" src="/assets/images/larino-halva-1600w.webp" srcset="/assets/images/larino-halva-640w.webp 640w, /assets/images/larino-halva-960w.webp 960w, /assets/images/larino-halva-1280w.webp 1280w, /assets/images/larino-halva-1600w.webp 1600w" sizes="100vw" width="1600" height="1200" fetchpriority="high" decoding="async"
-            alt="حلاوة لارينوو الطحينية بالفستق الحلبي الممتاز">
-        </picture>
-      </div>
+      <picture>
+        <source media="(max-width: 639px)" srcset="/assets/images/larino-halva-portrait-600w.webp 600w, /assets/images/larino-halva-portrait-900w.webp 900w" sizes="(max-aspect-ratio: 2/3) 66vh, 100vw">
+        <img class="hero__image" src="/assets/images/larino-halva-1600w.webp" srcset="/assets/images/larino-halva-640w.webp 640w, /assets/images/larino-halva-960w.webp 960w, /assets/images/larino-halva-1280w.webp 1280w, /assets/images/larino-halva-1600w.webp 1600w" sizes="100vw" width="1600" height="1200" fetchpriority="high" decoding="async" alt="حلاوة لارينوو الطحينية بالفستق الحلبي">
+      </picture>
       <div class="hero__overlay" aria-hidden="true"></div>
-      <div class="hero__rule" aria-hidden="true"></div>
       <div class="shell hero__content">
         <div class="hero__box animate-reveal-up">
-          <p class="hero__badge">
-            <span class="hero__badge-brand">شركة لارينوو والملوك</span>
-            <span class="hero__badge-sep" aria-hidden="true"></span>
-            <span>صناعة سورية</span>
-          </p>
-          <h1 class="hero__title"><span class="hero__title-accent">الحلاوة الطحينية</span><br>بجودة سورية أصيلة</h1>
-          <p class="hero__lead">حلاوة لارينوو بالفستق الحلبي، وحلاوة الملوك بالفستق السوداني أو سادة، وطحينة سمسم نقية من معملنا</p>
+          <h1 class="hero__title"><span class="hero__title-accent">شركة لارينوو والملوك</span>حلاوة وطحينة بصناعة سورية</h1>
+          <p class="hero__lead">نقدّم حلاوة لارينوو بالفستق الحلبي، وحلاوة الملوك بالفستق السوداني والسادة، وطحينة السمسم</p>
           <div class="hero__actions">
             <a class="btn btn--brand btn--lg" href="#products">اكتشف منتجاتنا <svg class="ic ic--20" aria-hidden="true"><use href="#i-arrow-left"/></svg></a>
             <a class="btn btn--outline-light btn--lg" href="#wholesale">اطلب جملة</a>
           </div>
-          <div class="hero__stages" role="group" aria-label="مراحل صناعة الحلاوة">
-            <button class="hero__stage-dot" type="button" data-stage="0" aria-label="عرض السمسم" aria-pressed="false"></button>
-            <button class="hero__stage-dot" type="button" data-stage="1" aria-label="عرض الطحينة" aria-pressed="false"></button>
-            <button class="hero__stage-dot" type="button" data-stage="2" aria-label="عرض الفستق" aria-pressed="false"></button>
-            <button class="hero__stage-dot is-active" type="button" data-stage="3" aria-label="عرض الحلاوة" aria-pressed="true"></button>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="about" class="about section">
-      <div class="gold-rule section__rule" aria-hidden="true"></div>
-      <div class="shell reveal">
-        <div class="about__heading">
-          <p class="eyebrow">قصتنا</p>
-          <h2 class="section__title section__title--primary">جذور أصيلة<br>برؤية معاصرة</h2>
-        </div>
-        <div class="about__body">
-          <p class="about__lead">شركة لارينوو والملوك معمل سوري متخصص في صناعة الحلاوة والطحينة</p>
-          <p class="about__text">نصنع حلاوة لارينوو بالفستق الحلبي وحلاوة الملوك بالفستق السوداني أو سادة، وطحينة السمسم النقية، ونهتم باختيار المواد الأولية ونظافة التصنيع وتوازن النكهة لنقدم منتجاً واضحاً في مكوناته ومحفوظاً في تعبئة عملية</p>
         </div>
       </div>
     </section>
@@ -232,14 +186,7 @@
                   <dd>طحينة سمسم 100٪، سكر، جذور نباتية، محسنات، ملح الليمون، فانيليا، فستق حلبي</dd>
                 </div>
               </dl>
-              <button class="btn btn--outline product-details-btn" type="button"
-                data-name="حلاوة لارينوو بالفستق الحلبي"
-                data-description="حلاوة طحينية سورية تجمع نعومة الطحينة ونكهة الفستق الحلبي الممتاز"
-                data-ingredients="طحينة سمسم 100٪، سكر، جذور نباتية، محسنات، ملح الليمون، فانيليا، فستق حلبي"
-                data-storage="يُحفظ في مكان بارد وجاف بعيداً عن أشعة الشمس ويُغلق جيداً بعد الفتح، وهو صالح لمدة عامين من تاريخ الإنتاج"
-                data-src="/assets/images/larino-tub-larinoo-1040w.webp"
-                data-srcset="/assets/images/larino-tub-larinoo-520w.webp 520w, /assets/images/larino-tub-larinoo-780w.webp 780w, /assets/images/larino-tub-larinoo-1040w.webp 1040w"
-                data-alt="علبة شفافة مفتوحة من حلاوة لارينوو بالفستق الحلبي وعليها ملصق لارينوو">
+              <button class="btn btn--outline product-details-btn" type="button" data-storage="يُحفظ في مكان بارد وجاف بعيداً عن أشعة الشمس ويُغلق جيداً بعد الفتح، وهو صالح لمدة عامين من تاريخ الإنتاج">
                 تفاصيل المنتج <svg class="ic ic--16" aria-hidden="true"><use href="#i-arrow-left"/></svg>
               </button>
             </div>
@@ -259,14 +206,7 @@
                   <dd>طحينة سمسم 100٪، سكر، جذور نباتية، محسنات، ملح الليمون، فانيليا، فستق سوداني</dd>
                 </div>
               </dl>
-              <button class="btn btn--outline product-details-btn" type="button"
-                data-name="حلاوة الملوك بالفستق السوداني"
-                data-description="حلاوة طحينية سورية تجمع نعومة الطحينة ومذاق الفستق السوداني"
-                data-ingredients="طحينة سمسم 100٪، سكر، جذور نباتية، محسنات، ملح الليمون، فانيليا، فستق سوداني"
-                data-storage="يُحفظ في مكان بارد وجاف بعيداً عن أشعة الشمس ويُغلق جيداً بعد الفتح، وهو صالح لمدة عامين من تاريخ الإنتاج"
-                data-src="/assets/images/larino-tub-molouk-1040w.webp"
-                data-srcset="/assets/images/larino-tub-molouk-520w.webp 520w, /assets/images/larino-tub-molouk-780w.webp 780w, /assets/images/larino-tub-molouk-1040w.webp 1040w"
-                data-alt="علبة شفافة مغلقة من حلاوة الملوك بالفستق السوداني وعلى غطائها وجانبها ملصق الملوك">
+              <button class="btn btn--outline product-details-btn" type="button" data-storage="يُحفظ في مكان بارد وجاف بعيداً عن أشعة الشمس ويُغلق جيداً بعد الفتح، وهو صالح لمدة عامين من تاريخ الإنتاج">
                 تفاصيل المنتج <svg class="ic ic--16" aria-hidden="true"><use href="#i-arrow-left"/></svg>
               </button>
             </div>
@@ -286,14 +226,7 @@
                   <dd>طحينة سمسم 100٪، سكر، جذور نباتية، محسنات، ملح الليمون، فانيليا</dd>
                 </div>
               </dl>
-              <button class="btn btn--outline product-details-btn" type="button"
-                data-name="حلاوة الملوك سادة"
-                data-description="حلاوة طحينية سورية سادة بنكهة الطحينة الصافية، بدون فستق حلبي أو سوداني"
-                data-ingredients="طحينة سمسم 100٪، سكر، جذور نباتية، محسنات، ملح الليمون، فانيليا"
-                data-storage="يُحفظ في مكان بارد وجاف بعيداً عن أشعة الشمس ويُغلق جيداً بعد الفتح، وهو صالح لمدة عامين من تاريخ الإنتاج"
-                data-src="/assets/images/larino-tub-molouk-plain-1040w.webp"
-                data-srcset="/assets/images/larino-tub-molouk-plain-520w.webp 520w, /assets/images/larino-tub-molouk-plain-780w.webp 780w, /assets/images/larino-tub-molouk-plain-1040w.webp 1040w"
-                data-alt="علبة شفافة مغلقة من حلاوة الملوك السادة وعلى غطائها وجانبها ملصق الملوك البني">
+              <button class="btn btn--outline product-details-btn" type="button" data-storage="يُحفظ في مكان بارد وجاف بعيداً عن أشعة الشمس ويُغلق جيداً بعد الفتح، وهو صالح لمدة عامين من تاريخ الإنتاج">
                 تفاصيل المنتج <svg class="ic ic--16" aria-hidden="true"><use href="#i-arrow-left"/></svg>
               </button>
             </div>
@@ -313,14 +246,7 @@
                   <dd>السمسم</dd>
                 </div>
               </dl>
-              <button class="btn btn--outline product-details-btn" type="button"
-                data-name="طحينة السمسم"
-                data-description="طحينة سمسم سورية نقية بقوام ناعم ونكهة واضحة تشكل أساس الحلاوة التي نصنعها"
-                data-ingredients="السمسم"
-                data-storage="يُحفظ في مكان بارد وجاف ويُحرّك قبل الاستخدام ويُغلق جيداً بعد الفتح"
-                data-src="/assets/images/larino-jar-tahini-1040w.webp"
-                data-srcset="/assets/images/larino-jar-tahini-520w.webp 520w, /assets/images/larino-jar-tahini-780w.webp 780w, /assets/images/larino-jar-tahini-1040w.webp 1040w"
-                data-alt="مرطبان زجاجي من طحينة السمسم السورية من لارينوو مكتوب عليه طحينة">
+              <button class="btn btn--outline product-details-btn" type="button" data-storage="يُحفظ في مكان بارد وجاف ويُحرّك قبل الاستخدام ويُغلق جيداً بعد الفتح">
                 تفاصيل المنتج <svg class="ic ic--16" aria-hidden="true"><use href="#i-arrow-left"/></svg>
               </button>
             </div>
@@ -329,101 +255,62 @@
       </div>
     </section>
 
-    <section class="ingredients">
-      <picture>
-        <source media="(max-width: 639px)" srcset="/assets/images/larino-pistachio-portrait-600w.webp 600w, /assets/images/larino-pistachio-portrait-900w.webp 900w" sizes="(max-aspect-ratio: 1/2) 53vh, 100vw">
-        <img class="ingredients__bg" src="/assets/images/larino-pistachio-1600w.webp" srcset="/assets/images/larino-pistachio-640w.webp 640w, /assets/images/larino-pistachio-960w.webp 960w, /assets/images/larino-pistachio-1280w.webp 1280w, /assets/images/larino-pistachio-1600w.webp 1600w" sizes="100vw" width="1600" height="1200" loading="lazy" decoding="async" alt="الفستق الحلبي الممتاز">
-      </picture>
-      <div class="ingredients__overlay" aria-hidden="true"></div>
-      <div class="shell ingredients__content">
-        <div class="ingredients__box">
-          <p class="kicker">مكونات تصنع الفرق</p>
-          <h2 class="ingredients__title">بساطة نراها<br>ونكهة نتذوقها</h2>
-          <p class="ingredients__text">تمنح الطحينة الحلاوة نعومتها ونكهتها الأساسية، ويضيف الفستق مذاقه المميز وملمسه المحبب</p>
-          <ul class="ingredients__list">
-            <li><span class="check-bubble check-bubble--pistachio"><svg class="ic ic--14" aria-hidden="true"><use href="#i-check"/></svg></span>طحينة سمسم نقية</li>
-            <li><span class="check-bubble check-bubble--pistachio"><svg class="ic ic--14" aria-hidden="true"><use href="#i-check"/></svg></span>فستق حلبي في لارينوو</li>
-            <li><span class="check-bubble check-bubble--pistachio"><svg class="ic ic--14" aria-hidden="true"><use href="#i-check"/></svg></span>فستق سوداني في الملوك</li>
-            <li><span class="check-bubble check-bubble--pistachio"><svg class="ic ic--14" aria-hidden="true"><use href="#i-check"/></svg></span>سادة لمن يفضّلها بلا فستق</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section id="quality" class="quality section">
-      <div class="shell reveal">
-        <header class="section__header">
-          <p class="eyebrow">رحلة التصنيع</p>
-          <h2 class="section__title section__title--primary">العناية تمر بكل مرحلة</h2>
-        </header>
-        <div class="quality__grid reveal reveal--stagger">
-          <article class="process-card">
-            <img class="process-card__img process-card__img--pos-a" src="/assets/images/larino-sesame-1600w.webp" srcset="/assets/images/larino-sesame-640w.webp 640w, /assets/images/larino-sesame-960w.webp 960w, /assets/images/larino-sesame-1280w.webp 1280w, /assets/images/larino-sesame-1600w.webp 1600w" sizes="(min-width: 768px) 590px, 100vw" width="1600" height="1200" loading="lazy" decoding="async" alt="اختيار السمسم">
-            <div class="process-card__shade" aria-hidden="true"></div>
-            <div class="process-card__caption">
-              <p class="process-card__number">01</p>
-              <h3 class="process-card__title">اختيار السمسم</h3>
-              <p class="process-card__text">فحص حبوب السمسم واختيار الأجود منها قبل بدء التحضير</p>
-            </div>
-          </article>
-          <article class="process-card">
-            <img class="process-card__img" src="/assets/images/larino-tahini-1600w.webp" srcset="/assets/images/larino-tahini-640w.webp 640w, /assets/images/larino-tahini-960w.webp 960w, /assets/images/larino-tahini-1280w.webp 1280w, /assets/images/larino-tahini-1600w.webp 1600w" sizes="(min-width: 768px) 590px, 100vw" width="1600" height="1200" loading="lazy" decoding="async" alt="تحضير الطحينة">
-            <div class="process-card__shade" aria-hidden="true"></div>
-            <div class="process-card__caption">
-              <p class="process-card__number">02</p>
-              <h3 class="process-card__title">تحضير الطحينة</h3>
-              <p class="process-card__text">طحن السمسم إلى طحينة ناعمة تحافظ على نكهتها</p>
-            </div>
-          </article>
-          <article class="process-card">
-            <img class="process-card__img process-card__img--pos-b" src="/assets/images/larino-pistachio-1600w.webp" srcset="/assets/images/larino-pistachio-640w.webp 640w, /assets/images/larino-pistachio-960w.webp 960w, /assets/images/larino-pistachio-1280w.webp 1280w, /assets/images/larino-pistachio-1600w.webp 1600w" sizes="(min-width: 768px) 590px, 100vw" width="1600" height="1200" loading="lazy" decoding="async" alt="إضافة الفستق">
-            <div class="process-card__shade" aria-hidden="true"></div>
-            <div class="process-card__caption">
-              <p class="process-card__number">03</p>
-              <h3 class="process-card__title">إضافة الفستق</h3>
-              <p class="process-card__text">فستق حلبي لحلاوة لارينوو وسوداني لحلاوة الملوك، يوزَّع بعناية في كل قطعة</p>
-            </div>
-          </article>
-          <article class="process-card">
-            <img class="process-card__img process-card__img--pos-c" src="/assets/images/larino-halva-1600w.webp" srcset="/assets/images/larino-halva-640w.webp 640w, /assets/images/larino-halva-960w.webp 960w, /assets/images/larino-halva-1280w.webp 1280w, /assets/images/larino-halva-1600w.webp 1600w" sizes="(min-width: 768px) 590px, 100vw" width="1600" height="1200" loading="lazy" decoding="async" alt="المنتج النهائي">
-            <div class="process-card__shade" aria-hidden="true"></div>
-            <div class="process-card__caption">
-              <p class="process-card__number">04</p>
-              <h3 class="process-card__title">المنتج النهائي</h3>
-              <p class="process-card__text">حلاوة متماسكة بقوام غني جاهزة للتعبئة والتقديم</p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="values section">
+    <section id="about" class="about section">
       <div class="gold-rule section__rule" aria-hidden="true"></div>
-      <div class="shell reveal values__grid">
-        <div>
-          <p class="kicker">لماذا لارينوو والملوك</p>
-          <h2 class="section__title section__title--inverse">تفاصيل صغيرة<br>فرق واضح</h2>
+      <div class="shell">
+        <div class="about__intro reveal">
+          <p class="kicker">قصتنا</p>
+          <h2 class="section__title section__title--inverse">جذور أصيلة<br>برؤية معاصرة</h2>
+          <p class="about__lead">شركة لارينوو والملوك معمل سوري متخصص في صناعة الحلاوة والطحينة</p>
+          <p class="about__text">نختار موادنا بعناية ونهتم بنظافة التصنيع وتوازن النكهة، لنقدّم منتجًا واضحًا في مكوناته ومحفوظًا في تعبئة عملية</p>
         </div>
-        <div class="values__list reveal reveal--stagger">
-          <article class="value-item">
-            <p class="value-item__figure">100٪</p>
-            <h3 class="value-item__title">طحينة سمسم نقية</h3>
-            <p class="value-item__text">أساس كل حلاوة وطحينة نصنعها</p>
+        <div class="facts reveal reveal--stagger">
+          <article class="fact">
+            <p class="fact__figure">100٪</p>
+            <h3 class="fact__title">طحينة سمسم نقية</h3>
+            <p class="fact__text">أساس كل حلاوة وطحينة نصنعها</p>
           </article>
-          <article class="value-item">
-            <p class="value-item__figure">3</p>
-            <h3 class="value-item__title">أصناف من الحلاوة</h3>
-            <p class="value-item__text">بالفستق الحلبي، وبالفستق السوداني، وسادة</p>
+          <article class="fact">
+            <p class="fact__figure">2</p>
+            <h3 class="fact__title">علامتان تجاريتان</h3>
+            <p class="fact__text">لارينوو والملوك، من إنتاج شركة واحدة</p>
           </article>
-          <article class="value-item">
-            <p class="value-item__figure">عامان</p>
-            <h3 class="value-item__title">مدة الصلاحية</h3>
-            <p class="value-item__text">من تاريخ الإنتاج مع الحفظ في مكان بارد وجاف</p>
+          <article class="fact">
+            <p class="fact__figure">عامان</p>
+            <h3 class="fact__title">مدة الصلاحية</h3>
+            <p class="fact__text">من تاريخ الإنتاج مع الحفظ في مكان بارد وجاف</p>
           </article>
-          <article class="value-item">
-            <p class="value-item__figure">سوريا</p>
-            <h3 class="value-item__title">صناعة محلية</h3>
-            <p class="value-item__text">من معملنا إلى المحلات في جميع أنحاء البلاد</p>
+          <article class="fact">
+            <p class="fact__figure">سوريا</p>
+            <h3 class="fact__title">صناعة محلية</h3>
+            <p class="fact__text">من معملنا إلى المحلات في جميع أنحاء البلاد</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="ingredients" class="ingredients section">
+      <div class="shell">
+        <header class="section__header reveal">
+          <p class="eyebrow">مكوناتنا</p>
+          <h2 class="section__title section__title--primary">بساطة نراها<br>ونكهة نتذوقها</h2>
+          <p class="section__lead">مكونات قليلة وواضحة، مكتوبة كاملة على كل عبوة</p>
+        </header>
+        <div class="ingredients__grid reveal reveal--stagger">
+          <article class="ingredient">
+            <img class="ingredient__image" src="/assets/images/larino-sesame-960w.webp" srcset="/assets/images/larino-sesame-640w.webp 640w, /assets/images/larino-sesame-960w.webp 960w, /assets/images/larino-sesame-1280w.webp 1280w" sizes="(min-width: 1280px) 390px, (min-width: 768px) 31vw, 100vw" width="1600" height="1200" loading="lazy" decoding="async" alt="معصرة نحاسية تُخرج الطحينة من حبوب السمسم">
+            <h3 class="ingredient__title">السمسم</h3>
+            <p class="ingredient__text">منه نصنع الطحينة، أساس النكهة في كل منتجاتنا</p>
+          </article>
+          <article class="ingredient">
+            <img class="ingredient__image" src="/assets/images/larino-tahini-960w.webp" srcset="/assets/images/larino-tahini-640w.webp 640w, /assets/images/larino-tahini-960w.webp 960w, /assets/images/larino-tahini-1280w.webp 1280w" sizes="(min-width: 1280px) 390px, (min-width: 768px) 31vw, 100vw" width="1600" height="1200" loading="lazy" decoding="async" alt="طحينة سمسم ناعمة تنساب في وعاء">
+            <h3 class="ingredient__title">الطحينة</h3>
+            <p class="ingredient__text">طحينة سمسم ناعمة نقدّمها وحدها، وتدخل في كل حلاوة</p>
+          </article>
+          <article class="ingredient">
+            <img class="ingredient__image" src="/assets/images/larino-pistachio-960w.webp" srcset="/assets/images/larino-pistachio-640w.webp 640w, /assets/images/larino-pistachio-960w.webp 960w, /assets/images/larino-pistachio-1280w.webp 1280w" sizes="(min-width: 1280px) 390px, (min-width: 768px) 31vw, 100vw" width="1600" height="1200" loading="lazy" decoding="async" alt="حبات فستق حلبي في وعاء فخاري">
+            <h3 class="ingredient__title">الفستق</h3>
+            <p class="ingredient__text">حلبي في حلاوة لارينوو، وسوداني في حلاوة الملوك</p>
           </article>
         </div>
       </div>
@@ -440,9 +327,6 @@
             <li><span class="check-bubble check-bubble--primary"><svg class="ic ic--14" aria-hidden="true"><use href="#i-check"/></svg></span>الحد الأدنى للطلب يُحدَّد حسب المنتج والمنطقة عند التواصل</li>
             <li><span class="check-bubble check-bubble--primary"><svg class="ic ic--14" aria-hidden="true"><use href="#i-check"/></svg></span>رد مباشر عبر واتساب</li>
           </ul>
-          <figure class="partners__figure">
-            <img src="/assets/images/larino-tubs-trio-900w.webp" srcset="/assets/images/larino-tubs-trio-600w.webp 600w, /assets/images/larino-tubs-trio-900w.webp 900w, /assets/images/larino-tubs-trio-1200w.webp 1200w" sizes="(min-width: 1280px) 530px, 42vw" width="1200" height="896" loading="lazy" decoding="async" alt="ثلاث علب شفافة: حلاوة الملوك سادة وبالفستق السوداني خلف علبة حلاوة لارينوو المفتوحة">
-          </figure>
         </div>
         <div class="partners__form-card" id="wholesale">
           <h3 class="partners__form-title">نموذج طلب جملة</h3>
@@ -472,18 +356,11 @@
             </div>
             <button class="btn btn--primary btn--lg form__submit" type="submit">أرسل الطلب عبر واتساب <svg class="ic ic--16" aria-hidden="true"><use href="#i-send"/></svg></button>
             <p class="form__status" role="status" hidden>فُتحت محادثة واتساب برسالة طلبك جاهزة للإرسال</p>
+            <p class="form__privacy">لا يحفظ الموقع بياناتك، وتصلنا فقط عبر محادثة واتساب التي ترسلها بنفسك</p>
           </form>
         </div>
-      </div>
-    </section>
-
-    <section id="contact" class="contact section">
-      <div class="shell reveal">
-        <header class="section__header">
-          <p class="eyebrow">تواصل معنا</p>
-          <h2 class="section__title section__title--primary">يسعدنا سماعك</h2>
-        </header>
-        <div class="contact__grid">
+        <div class="partners__contact" id="contact">
+          <h3 class="partners__contact-title">أو تواصل معنا مباشرة</h3>
           <div class="contact__cards">
             <a class="contact-card" href="tel:+963952516412">
               <span class="contact-card__icon"><svg class="ic ic--20" aria-hidden="true"><use href="#i-phone"/></svg></span>
@@ -502,20 +379,6 @@
               <span class="contact-card__text"><b>فيسبوك</b><span class="contact-card__number" dir="ltr">larinoo26</span></span>
             </a>
           </div>
-          <div class="contact__form-card">
-            <form class="form js-contact-form">
-              <div class="form__field">
-                <label for="c-name">الاسم</label>
-                <input id="c-name" name="name" type="text" required maxlength="80" autocomplete="name">
-              </div>
-              <div class="form__field">
-                <label for="c-msg">رسالتك</label>
-                <textarea id="c-msg" name="message" required maxlength="1000" rows="4"></textarea>
-              </div>
-              <button class="btn btn--primary btn--lg form__submit" type="submit">أرسل عبر واتساب <svg class="ic ic--16" aria-hidden="true"><use href="#i-send"/></svg></button>
-              <p class="form__status" role="status" hidden>فُتحت محادثة واتساب برسالتك جاهزة للإرسال</p>
-            </form>
-          </div>
         </div>
       </div>
     </section>
@@ -530,7 +393,7 @@
             <span class="logo__name">لارينوو</span>
             <span class="logo__tagline">حلاوة وطحينة</span>
           </p>
-          <p class="footer__about">شركة لارينوو والملوك: حلاوة لارينوو بالفستق الحلبي، وحلاوة الملوك بالفستق السوداني أو سادة، وطحينة السمسم</p>
+          <p class="footer__about">معمل سوري لصناعة الحلاوة والطحينة، ومنتجاتنا تحمل علامتي لارينوو والملوك</p>
           <div class="footer__social">
             <a href="https://www.instagram.com/laryno26/" target="_blank" rel="noopener noreferrer" aria-label="تابعنا على إنستغرام"><svg class="ic ic--20" aria-hidden="true"><use href="#i-instagram"/></svg></a>
             <a href="https://www.facebook.com/larinoo26" target="_blank" rel="noopener noreferrer" aria-label="تابعنا على فيسبوك"><svg class="ic ic--20" aria-hidden="true"><use href="#i-facebook"/></svg></a>
@@ -539,9 +402,9 @@
         </div>
         <nav class="footer__links" aria-label="روابط سريعة">
           <b>روابط سريعة</b>
-          <a href="#about">قصتنا</a>
           <a href="#products">منتجاتنا</a>
-          <a href="#quality">رحلة التصنيع</a>
+          <a href="#about">قصتنا</a>
+          <a href="#ingredients">مكوناتنا</a>
           <a href="#partners">للتجار</a>
           <a href="#contact">تواصل معنا</a>
         </nav>
@@ -580,6 +443,6 @@
     </div>
   </div>
 
-  <script src="/js/main.js?v=5" defer></script>
+  <script src="/js/main.js?v=6" defer></script>
 </body>
 </html>

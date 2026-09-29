@@ -2,7 +2,6 @@
   "use strict";
 
   var WHATSAPP_NUMBER = "963952516412";
-  var HERO_INTERVAL_MS = 5200;
   var modalState = null;
 
   function lockScroll(lock) {
@@ -69,7 +68,7 @@
   function onScroll() {
     scrollTicking = false;
     var y = window.scrollY;
-    siteHeader.classList.toggle("is-scrolled", y > 8);
+    siteHeader.classList.toggle("is-top", y <= 8);
     floatBtn.classList.toggle("is-shown", y > heroSection.offsetHeight * 0.6);
   }
 
@@ -81,64 +80,21 @@
   }, { passive: true });
   onScroll();
 
-  var heroSlides = Array.prototype.slice.call(document.querySelectorAll(".hero__slide"));
-  var heroDots = Array.prototype.slice.call(document.querySelectorAll(".hero__stage-dot"));
-  var heroIndex = heroSlides.findIndex(function (slide) {
-    return slide.classList.contains("is-active");
-  });
-  if (heroIndex < 0) heroIndex = 0;
-  var heroTimer = null;
-
-  function showHeroStage(index) {
-    heroIndex = (index + heroSlides.length) % heroSlides.length;
-    heroSlides.forEach(function (slide, i) {
-      var active = i === heroIndex;
-      slide.classList.toggle("is-active", active);
-      slide.setAttribute("aria-hidden", active ? "false" : "true");
-      slide.setAttribute("alt", active ? slide.getAttribute("data-alt") : "");
-    });
-    heroDots.forEach(function (dot, i) {
-      var active = i === heroIndex;
-      dot.classList.toggle("is-active", active);
-      dot.setAttribute("aria-pressed", active ? "true" : "false");
-    });
-  }
-
-  heroDots.forEach(function (dot) {
-    dot.addEventListener("click", function () {
-      showHeroStage(heroDots.indexOf(dot));
-      restartHeroTimer();
-    });
-  });
-
-  function restartHeroTimer() {
-    window.clearInterval(heroTimer);
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    heroTimer = window.setInterval(function () {
-      showHeroStage(heroIndex + 1);
-    }, HERO_INTERVAL_MS);
-  }
-
-  document.addEventListener("visibilitychange", function () {
-    if (document.hidden) window.clearInterval(heroTimer);
-    else restartHeroTimer();
-  });
-
-  restartHeroTimer();
-
-  var revealItems = document.querySelectorAll(".reveal");
   if ("IntersectionObserver" in window) {
     var observer = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
-          observer.unobserve(entry.target);
-        }
+        if (!entry.isIntersecting) return;
+        entry.target.classList.remove("is-pending");
+        entry.target.classList.add("is-visible");
+        observer.unobserve(entry.target);
       });
     }, { threshold: 0.12 });
-    revealItems.forEach(function (item) { observer.observe(item); });
-  } else {
-    revealItems.forEach(function (item) { item.classList.add("is-visible"); });
+
+    document.querySelectorAll(".reveal").forEach(function (item) {
+      if (item.getBoundingClientRect().top < window.innerHeight) return;
+      item.classList.add("is-pending");
+      observer.observe(item);
+    });
   }
 
   var productModal = document.getElementById("product-modal");
@@ -147,20 +103,20 @@
   var productModalDesc = productModal.querySelector(".modal__desc");
   var productModalIngredients = productModal.querySelector(".js-ingredients");
   var productModalStorage = productModal.querySelector(".js-storage");
+  var wholesaleProduct = document.getElementById("w-product");
 
   function openModal(trigger) {
-    var data = trigger.dataset;
-    productModalImage.hidden = !data.src;
-    if (data.src) {
-      productModalImage.src = data.src;
-      if (data.srcset) productModalImage.srcset = data.srcset;
-      productModalImage.alt = data.alt;
-      productModalImage.sizes = "(min-width: 640px) 42rem, 100vw";
-    }
-    productModalTitle.textContent = data.name;
-    productModalDesc.textContent = data.description;
-    productModalIngredients.textContent = data.ingredients;
-    productModalStorage.textContent = data.storage;
+    var card = trigger.closest(".product-card");
+    var image = card.querySelector(".product-card__media img");
+
+    productModalImage.srcset = image.getAttribute("srcset");
+    productModalImage.src = image.getAttribute("src");
+    productModalImage.sizes = "(min-width: 640px) 42rem, 100vw";
+    productModalImage.alt = image.alt;
+    productModalTitle.textContent = card.querySelector(".product-card__name").textContent;
+    productModalDesc.textContent = card.querySelector(".product-card__desc").textContent;
+    productModalIngredients.textContent = card.querySelector(".product-card__spec dd").textContent;
+    productModalStorage.textContent = trigger.dataset.storage;
 
     modalState = { el: productModal, returnFocus: trigger };
     productModal.hidden = false;
@@ -168,19 +124,18 @@
     productModal.querySelector(".modal__close").focus();
   }
 
-  function closeModal() {
+  function closeModal(returnFocus) {
     if (!modalState) return;
     var modal = modalState.el;
-    var returnFocus = modalState.returnFocus;
+    var focusTarget = returnFocus === false ? null : modalState.returnFocus;
     modalState = null;
     modal.classList.add("is-closing");
     window.setTimeout(function () {
       modal.hidden = true;
       modal.classList.remove("is-closing");
-      productModalImage.removeAttribute("src");
       productModalImage.removeAttribute("srcset");
       lockScroll(false);
-      if (returnFocus) returnFocus.focus();
+      if (focusTarget) focusTarget.focus();
     }, 160);
   }
 
@@ -193,42 +148,31 @@
   });
 
   productModal.querySelector(".js-modal-order").addEventListener("click", function () {
-    closeModal();
+    var name = productModalTitle.textContent;
+    Array.prototype.forEach.call(wholesaleProduct.options, function (option) {
+      if (option.value === name) wholesaleProduct.value = name;
+    });
+    closeModal(false);
   });
 
   productModal.addEventListener("keydown", function (event) {
     if (event.key === "Tab") trapTab(productModal, event);
   });
 
-  function openWhatsApp(lines) {
-    var text = encodeURIComponent(lines.filter(Boolean).join("\n"));
-    window.open("https://wa.me/" + WHATSAPP_NUMBER + "?text=" + text, "_blank", "noopener,noreferrer");
-  }
+  var wholesaleForm = document.querySelector(".js-wholesale-form");
+  var wholesaleStatus = wholesaleForm.querySelector(".form__status");
 
-  function handleForm(form, buildLines) {
-    var status = form.querySelector(".form__status");
-    form.addEventListener("submit", function (event) {
-      event.preventDefault();
-      openWhatsApp(buildLines(new FormData(form)));
-      if (status) status.hidden = false;
-    });
-  }
-
-  handleForm(document.querySelector(".js-wholesale-form"), function (data) {
-    return [
+  wholesaleForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+    var data = new FormData(wholesaleForm);
+    var text = [
       "طلب جملة من موقع شركة لارينوو والملوك",
       "الاسم: " + data.get("name"),
       "المدينة: " + data.get("city"),
       "المنتج: " + data.get("product"),
       "الكمية التقريبية: " + data.get("quantity"),
-    ];
-  });
-
-  handleForm(document.querySelector(".js-contact-form"), function (data) {
-    return [
-      "رسالة من موقع شركة لارينوو والملوك",
-      "الاسم: " + data.get("name"),
-      "" + data.get("message"),
-    ];
+    ].join("\n");
+    window.open("https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(text), "_blank", "noopener,noreferrer");
+    wholesaleStatus.hidden = false;
   });
 })();
