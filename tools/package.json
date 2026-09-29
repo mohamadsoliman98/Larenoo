@@ -6,7 +6,8 @@
   "scripts": {
     "check": "node check.mjs",
     "fix": "node check.mjs --fix",
-    "images": "node images.mjs"
+    "images": "node images.mjs",
+    "build": "node build.mjs"
   },
   "engines": {
     "node": ">=18"

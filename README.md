@@ -19,7 +19,7 @@ _headers              إعدادات الأمان والتخزين المؤقت 
 favicon.svg           أيقونة المتصفح (ومعها favicon.png و apple-touch-icon.png)
 robots.txt            تعليمات محركات البحث
 sitemap.xml           خريطة الموقع
-tools/                أدوات الصيانة، لا تؤثر على الموقع
+tools/                أدوات الصيانة: الفحص، الصور، تجهيز حزمة الرفع (لا تُرفع مع الموقع)
 .github/workflows/    فحص تلقائي على GitHub عند كل تعديل
 ```
 
@@ -151,9 +151,23 @@ node tools/check.mjs --fix
 
 ## النشر
 
+### عبر GitHub
+
 1. اعمل على فرع جديد، وافتح Pull Request إلى `main`.
 2. انتظر علامة النجاح الخضراء من فحص GitHub.
-3. ادمج. ينشر Cloudflare Pages الفرع `main` تلقائيًا.
+3. ادمج. ينشر Cloudflare Pages الفرع `main` تلقائيًا إن كان المشروع مربوطًا بالمستودع.
+
+### رفع يدوي على Cloudflare Pages
+
+```bash
+node tools/build.mjs
+```
+
+1. يشغّل الأمر الفحص أولًا، ثم يجهّز مجلد `dist/` بملفات الموقع فقط، دون الدليل والأدوات.
+2. في Cloudflare افتح **Workers & Pages** ثم المشروع ثم **Create deployment**.
+3. اسحب مجلد `dist` كما هو، أو ملف zip يحتوي ما بداخله مباشرة.
+
+`index.html` و `_headers` يجب أن يكونا في أعلى المجلد المرفوع، لا داخل مجلد فرعي.
 
 بعد أي تغيير كبير، تأكد من:
 
