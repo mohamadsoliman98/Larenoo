@@ -57,13 +57,35 @@
   document.addEventListener("keydown", function (event) {
     if (event.key !== "Escape") return;
     if (!productModal.hidden) { closeModal(); return; }
-    if (!lightbox.hidden) { closeLightbox(); return; }
     if (menuToggle.getAttribute("aria-expanded") === "true") closeMenu(true);
   });
 
   window.addEventListener("resize", function () {
     if (window.innerWidth >= 1024 && mobileNav.hidden === false) closeMenu(false);
   });
+
+  /* ---------- Header shadow + floating WhatsApp (after the hero) ---------- */
+
+  var siteHeader = document.querySelector(".site-header");
+  var heroSection = document.getElementById("home");
+  var floatBtn = document.querySelector(".whatsapp-float");
+  var scrollTicking = false;
+
+  function onScroll() {
+    scrollTicking = false;
+    var y = window.scrollY;
+    siteHeader.classList.toggle("is-scrolled", y > 8);
+    // The header already offers WhatsApp on the first screen; the floating button joins after the hero.
+    floatBtn.classList.toggle("is-shown", y > heroSection.offsetHeight * 0.6);
+  }
+
+  window.addEventListener("scroll", function () {
+    if (!scrollTicking) {
+      scrollTicking = true;
+      window.requestAnimationFrame(onScroll);
+    }
+  }, { passive: true });
+  onScroll();
 
   /* ---------- Hero stage rotation ---------- */
 
@@ -190,99 +212,6 @@
   productModal.addEventListener("keydown", function (event) {
     if (event.key === "Tab") trapTab(productModal, event);
   });
-
-  /* ---------- Gallery lightbox ---------- */
-
-  var lightbox = document.getElementById("gallery-lightbox");
-  var galleryItems = Array.prototype.slice.call(document.querySelectorAll(".gallery__item"));
-  var lbTitle = lightbox.querySelector(".lightbox__title");
-  var lbCounter = lightbox.querySelector(".lightbox__counter");
-  var lbDesc = lightbox.querySelector(".lightbox__desc");
-  var lbImage = lightbox.querySelector(".lightbox__image");
-  var lbStage = lightbox.querySelector(".lightbox__stage");
-  var lbIndex = 0;
-  var lbZoom = 1;
-  var lbReturnFocus = null;
-  var lbTouchStartX = null;
-
-  function lightboxItem(i) { return galleryItems[(i + galleryItems.length) % galleryItems.length]; }
-
-  function renderLightbox() {
-    var item = lightboxItem(lbIndex).dataset;
-    lbTitle.textContent = item.title;
-    lbCounter.textContent = lbIndex + 1 + " من " + galleryItems.length;
-    lbDesc.textContent = item.description;
-    lbImage.src = item.src;
-    if (item.srcset) lbImage.srcset = item.srcset;
-    lbImage.alt = item.alt;
-    lbImage.sizes = "96vw";
-    lbZoom = 1;
-    lbImage.style.transform = "scale(1)";
-    lbStage.scrollTop = 0;
-    lbStage.scrollLeft = 0;
-  }
-
-  function openLightbox(index, trigger) {
-    lbIndex = index;
-    lbReturnFocus = trigger;
-    renderLightbox();
-    lightbox.hidden = false;
-    lockScroll(true);
-    lightbox.querySelector("[data-close]").focus();
-  }
-
-  function closeLightbox() {
-    lightbox.hidden = true;
-    lbImage.removeAttribute("src");
-    lbImage.removeAttribute("srcset");
-    lockScroll(false);
-    if (lbReturnFocus) lbReturnFocus.focus();
-    lbReturnFocus = null;
-  }
-
-  function moveLightbox(direction) {
-    lbIndex = (lbIndex + direction + galleryItems.length) % galleryItems.length;
-    renderLightbox();
-  }
-
-  function setZoom(value) {
-    lbZoom = Math.min(2.5, Math.max(1, value));
-    lbImage.style.transform = "scale(" + lbZoom + ")";
-  }
-
-  galleryItems.forEach(function (item, index) {
-    item.addEventListener("click", function () { openLightbox(index, item); });
-  });
-
-  lightbox.addEventListener("click", function (event) {
-    if (event.target === lightbox) { closeLightbox(); return; }
-    var control = event.target.closest("[data-close],[data-move],[data-zoom-in],[data-zoom-out],[data-zoom-reset]");
-    if (!control) return;
-    if (control.hasAttribute("data-close")) closeLightbox();
-    if (control.hasAttribute("data-move")) moveLightbox(Number(control.getAttribute("data-move")));
-    if (control.hasAttribute("data-zoom-in")) setZoom(lbZoom + 0.25);
-    if (control.hasAttribute("data-zoom-out")) setZoom(lbZoom - 0.25);
-    if (control.hasAttribute("data-zoom-reset")) setZoom(1);
-  });
-
-  document.addEventListener("keydown", function (event) {
-    if (lightbox.hidden) return;
-    if (event.key === "ArrowLeft") moveLightbox(1);
-    if (event.key === "ArrowRight") moveLightbox(-1);
-    if (event.key === "Tab") trapTab(lightbox, event);
-  });
-
-  lbStage.addEventListener("touchstart", function (event) {
-    lbTouchStartX = event.touches[0] ? event.touches[0].clientX : null;
-  }, { passive: true });
-
-  lbStage.addEventListener("touchend", function (event) {
-    var endX = event.changedTouches[0] ? event.changedTouches[0].clientX : null;
-    if (lbTouchStartX === null || endX === null || lbZoom > 1) return;
-    var distance = endX - lbTouchStartX;
-    if (Math.abs(distance) > 55) moveLightbox(distance > 0 ? -1 : 1);
-    lbTouchStartX = null;
-  }, { passive: true });
 
   /* ---------- WhatsApp forms ---------- */
 
