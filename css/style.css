@@ -1645,8 +1645,6 @@ section[id] {
   .menu-toggle { display: none; }
   .hero__title { font-size: 4.5rem; }
 
-  .products__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-
   .gallery__grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .gallery__item { aspect-ratio: 1 / 1; }
   .gallery__item--featured {
