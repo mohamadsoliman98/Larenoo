@@ -140,10 +140,14 @@
 
   function openModal(trigger) {
     var data = trigger.dataset;
-    productModalImage.src = data.src;
-    if (data.srcset) productModalImage.srcset = data.srcset;
-    productModalImage.alt = data.alt;
-    productModalImage.sizes = "(min-width: 640px) 42rem, 100vw";
+    // Products without a photo yet (no data-src) open the modal without an image.
+    productModalImage.hidden = !data.src;
+    if (data.src) {
+      productModalImage.src = data.src;
+      if (data.srcset) productModalImage.srcset = data.srcset;
+      productModalImage.alt = data.alt;
+      productModalImage.sizes = "(min-width: 640px) 42rem, 100vw";
+    }
     productModalTitle.textContent = data.name;
     productModalDesc.textContent = data.description;
     productModalIngredients.textContent = data.ingredients;
@@ -298,7 +302,7 @@
 
   handleForm(document.querySelector(".js-wholesale-form"), function (data) {
     return [
-      "طلب جملة من موقع لارينوو",
+      "طلب جملة من موقع شركة لارينوو والملوك",
       "الاسم: " + data.get("name"),
       "المدينة: " + data.get("city"),
       "الهاتف: " + data.get("phone"),
@@ -309,7 +313,7 @@
 
   handleForm(document.querySelector(".js-contact-form"), function (data) {
     return [
-      "رسالة من موقع لارينوو",
+      "رسالة من موقع شركة لارينوو والملوك",
       "الاسم: " + data.get("name"),
       "الهاتف: " + data.get("phone"),
       "" + data.get("message"),

@@ -673,6 +673,46 @@ section[id] {
   transform: scale(1.03);
 }
 
+/* Branded panel for a product that has no photo yet (identity colours only). */
+.product-card__media--emblem {
+  position: relative;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 1rem;
+  background:
+    radial-gradient(circle at 50% 42%, color-mix(in oklab, var(--brand-yellow) 16%, transparent), transparent 62%),
+    var(--primary);
+  color: var(--brand-yellow);
+}
+
+.product-card__media--emblem::before {
+  content: "";
+  position: absolute;
+  inset: 1rem;
+  border: 1px solid color-mix(in oklab, var(--brand-yellow) 45%, transparent);
+  border-radius: var(--radius-lg);
+  pointer-events: none;
+}
+
+.product-card__emblem {
+  width: 5rem;
+  height: 5rem;
+  stroke-width: 1.2;
+  transition: transform 0.7s;
+}
+
+.product-card:hover .product-card__emblem {
+  transform: scale(1.05);
+}
+
+.product-card__emblem-label {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--primary-foreground);
+}
+
 .product-card__body {
   display: flex;
   flex-direction: column;
@@ -708,6 +748,7 @@ section[id] {
 
 .product-card__specs {
   margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
   padding-top: 1rem;
   border-top: 1px solid var(--border);
   font-size: 0.875rem;
@@ -733,8 +774,9 @@ section[id] {
   color: var(--muted-foreground);
 }
 
+/* Auto margin keeps the buttons aligned when cards sit side by side. */
 .product-details-btn {
-  margin-top: 1.25rem;
+  margin-top: auto;
   align-self: flex-start;
 }
 
@@ -1260,6 +1302,7 @@ section[id] {
 
 .footer__social {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 0.75rem;
   margin-top: 1rem;
@@ -1294,14 +1337,14 @@ section[id] {
 .footer__links a {
   display: block;
   margin-top: 0.75rem;
-}
-
-.footer__links a:first-of-type {
-  margin-top: 1rem;
   color: color-mix(in oklab, var(--primary-foreground) 80%, transparent);
   font-size: 0.875rem;
   font-weight: 500;
   text-decoration: none;
+}
+
+.footer__links a:first-of-type {
+  margin-top: 1rem;
 }
 
 .footer__links a:hover {
@@ -1619,6 +1662,7 @@ section[id] {
 
 @media (min-width: 768px) {
   .products__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .product-card { grid-template-rows: auto 1fr; }
   .product-card__media { aspect-ratio: 5 / 4; min-height: 0; }
 
   .quality__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -1641,6 +1685,8 @@ section[id] {
   .nav-desktop { display: flex; }
   .menu-toggle { display: none; }
   .hero__title { font-size: 4.5rem; }
+
+  .products__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 
   .gallery__grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .gallery__item { aspect-ratio: 1 / 1; }
@@ -1687,6 +1733,20 @@ section[id] {
 @media (min-width: 640px) and (max-width: 767px) {
   .product-card { grid-template-columns: 0.92fr 1.08fr; }
   .product-card__media { aspect-ratio: auto; min-height: 18rem; }
+}
+
+/* Tablet: two cards per row, an odd last card spans the row in the horizontal layout. */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .products__grid > .product-card:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    grid-template-columns: 0.92fr 1.08fr;
+    grid-template-rows: auto;
+  }
+  .products__grid > .product-card:last-child:nth-child(odd) .product-card__media { aspect-ratio: auto; min-height: 18rem; }
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+  .contact__cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 /* ---------- Reduced motion ---------- */
