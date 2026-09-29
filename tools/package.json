@@ -1,0 +1,17 @@
+{
+  "name": "larinoo-site-tools",
+  "private": true,
+  "type": "module",
+  "description": "Maintenance tools for the larinoo.com static site",
+  "scripts": {
+    "check": "node check.mjs",
+    "fix": "node check.mjs --fix",
+    "images": "node images.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "devDependencies": {
+    "sharp": "^0.34.5"
+  }
+}
