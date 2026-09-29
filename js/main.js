@@ -234,7 +234,6 @@
       "طلب جملة من موقع شركة لارينوو والملوك",
       "الاسم: " + data.get("name"),
       "المدينة: " + data.get("city"),
-      "الهاتف: " + data.get("phone"),
       "المنتج: " + data.get("product"),
       "الكمية التقريبية: " + data.get("quantity"),
     ];
@@ -244,7 +243,6 @@
     return [
       "رسالة من موقع شركة لارينوو والملوك",
       "الاسم: " + data.get("name"),
-      "الهاتف: " + data.get("phone"),
       "" + data.get("message"),
     ];
   });
